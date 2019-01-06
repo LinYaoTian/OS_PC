@@ -1,0 +1,389 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/layout_root"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="0dp"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/colorPrimary"
+        android:gravity="center_vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+      >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:text="操作系统"
+            android:textColor="@color/white"
+            android:textSize="22sp" />
+
+    </LinearLayout>
+
+    <View
+        android:id="@+id/tip_yellow"
+        android:layout_width="15dp"
+        android:layout_height="15dp"
+        android:layout_marginStart="8dp"
+        android:background="@drawable/circle_yellow"
+        app:layout_constraintBottom_toBottomOf="@+id/buffer"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/buffer"
+        app:layout_constraintVertical_bias="0.45"/>
+
+    <TextView
+        android:id="@+id/tip_tv_yellow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="生产中/消费中"
+        app:layout_constraintBottom_toBottomOf="@+id/tip_yellow"
+        app:layout_constraintStart_toEndOf="@+id/tip_yellow"
+        app:layout_constraintTop_toTopOf="@+id/tip_yellow" />
+
+
+    <View
+        android:id="@+id/tip_green"
+        android:layout_width="15dp"
+        android:layout_height="15dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/circle_green"
+        app:layout_constraintStart_toStartOf="@+id/tip_yellow"
+        app:layout_constraintTop_toBottomOf="@+id/tip_yellow" />
+
+    <TextView
+        android:id="@+id/tip_tv_green"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="生产完成/需要消费"
+        app:layout_constraintBottom_toBottomOf="@+id/tip_green"
+        app:layout_constraintStart_toEndOf="@+id/tip_green"
+        app:layout_constraintTop_toTopOf="@+id/tip_green" />
+
+    <View
+        android:id="@+id/tip_grey"
+        android:layout_width="15dp"
+        android:layout_height="15dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/circle_grey"
+        app:layout_constraintStart_toStartOf="@+id/tip_green"
+        app:layout_constraintTop_toBottomOf="@+id/tip_green" />
+
+    <TextView
+        android:id="@+id/tip_tv_grey"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="闲置"
+        app:layout_constraintBottom_toBottomOf="@+id/tip_grey"
+        app:layout_constraintStart_toEndOf="@+id/tip_grey"
+        app:layout_constraintTop_toTopOf="@+id/tip_grey" />
+
+
+
+
+    <LinearLayout
+        android:id="@+id/ll_setting"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="生产者数:"
+            android:textColor="@color/colorBlue" />
+
+        <EditText
+            android:id="@+id/et_p_num"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:textColor="@color/black"
+            android:layout_height="wrap_content"
+            android:digits="012345"
+            android:text="3"
+            android:inputType="number" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="消费者数:"
+            android:textColor="@color/colorBlue" />
+
+        <EditText
+            android:id="@+id/et_c_num"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:textColor="@color/black"
+            android:layout_height="wrap_content"
+            android:digits="012345"
+            android:inputType="number"
+            android:text="3"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="缓冲区大小:"
+            android:textColor="@color/colorBlue" />
+
+        <EditText
+            android:id="@+id/et_buffer_num"
+            android:layout_width="0dp"
+            android:layout_weight="2"
+            android:text="10"
+            android:textColor="@color/black"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:digits="0123456789"/>
+
+        <Button
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/btn"
+            android:text="开始"/>
+    </LinearLayout>
+
+
+    <View
+        android:id="@+id/p_1"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/circle_grey"
+        app:layout_constraintEnd_toStartOf="@id/p_2"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ll_setting"
+        app:layout_constraintVertical_chainStyle="spread" />
+
+    <TextView
+        android:id="@+id/tv_p1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="P1"
+        app:layout_constraintEnd_toEndOf="@+id/p_1"
+        app:layout_constraintStart_toStartOf="@+id/p_1"
+        app:layout_constraintTop_toBottomOf="@+id/p_1" />
+
+    <View
+        android:id="@+id/p_2"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:background="@drawable/circle_grey"
+        app:layout_constraintEnd_toStartOf="@id/p_3"
+        app:layout_constraintStart_toEndOf="@+id/p_1"
+        app:layout_constraintTop_toTopOf="@+id/p_1" />
+    <TextView
+        android:id="@+id/tv_p2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="P2"
+        app:layout_constraintEnd_toEndOf="@+id/p_2"
+        app:layout_constraintStart_toStartOf="@+id/p_2"
+        app:layout_constraintTop_toBottomOf="@+id/p_2" />
+
+    <View
+        android:id="@+id/p_3"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:background="@drawable/circle_grey"
+        app:layout_constraintEnd_toStartOf="@id/p_4"
+        app:layout_constraintStart_toEndOf="@+id/p_2"
+        app:layout_constraintTop_toTopOf="@+id/p_1" />
+
+    <TextView
+        android:id="@+id/tv_p3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="P3"
+        app:layout_constraintEnd_toEndOf="@+id/p_3"
+        app:layout_constraintStart_toStartOf="@+id/p_3"
+        app:layout_constraintTop_toBottomOf="@+id/p_3" />
+
+    <View
+        android:id="@+id/p_4"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:background="@drawable/circle_grey"
+        app:layout_constraintEnd_toStartOf="@+id/p_5"
+        app:layout_constraintStart_toEndOf="@+id/p_3"
+        app:layout_constraintTop_toTopOf="@+id/p_1" />
+
+    <TextView
+        android:id="@+id/tv_p4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="P4"
+        app:layout_constraintEnd_toEndOf="@+id/p_4"
+        app:layout_constraintStart_toStartOf="@+id/p_4"
+        app:layout_constraintTop_toBottomOf="@+id/p_4" />
+
+    <View
+        android:id="@+id/p_5"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:background="@drawable/circle_grey"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/p_4"
+        app:layout_constraintTop_toTopOf="@+id/p_1" />
+
+    <TextView
+        android:id="@+id/tv_p5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="P5"
+        app:layout_constraintEnd_toEndOf="@+id/p_5"
+        app:layout_constraintStart_toStartOf="@+id/p_5"
+        app:layout_constraintTop_toBottomOf="@+id/p_5" />
+
+
+    <TextView
+        android:id="@+id/tv_c1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="C1"
+        app:layout_constraintEnd_toEndOf="@+id/c_1"
+        app:layout_constraintStart_toStartOf="@+id/c_1"
+        app:layout_constraintBottom_toTopOf="@+id/c_1" />
+
+
+    <View
+        android:id="@+id/c_1"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/circle_grey"
+        app:layout_constraintEnd_toStartOf="@id/c_2"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_c2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="C2"
+        app:layout_constraintEnd_toEndOf="@+id/c_2"
+        app:layout_constraintStart_toStartOf="@+id/c_2"
+        app:layout_constraintBottom_toTopOf="@+id/c_2" />
+
+    <View
+        android:id="@+id/c_2"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:background="@drawable/circle_grey"
+        app:layout_constraintBottom_toBottomOf="@+id/c_1"
+        app:layout_constraintEnd_toStartOf="@id/c_3"
+        app:layout_constraintStart_toEndOf="@+id/c_1" />
+
+    <TextView
+        android:id="@+id/tv_c3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="C3"
+        app:layout_constraintEnd_toEndOf="@+id/c_3"
+        app:layout_constraintStart_toStartOf="@+id/c_3"
+        app:layout_constraintBottom_toTopOf="@+id/c_3" />
+
+    <View
+        android:id="@+id/c_3"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:background="@drawable/circle_grey"
+        app:layout_constraintBottom_toBottomOf="@+id/c_1"
+        app:layout_constraintEnd_toStartOf="@id/c_4"
+        app:layout_constraintStart_toEndOf="@+id/c_2" />
+
+    <TextView
+        android:id="@+id/tv_c4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="C4"
+        app:layout_constraintEnd_toEndOf="@+id/c_4"
+        app:layout_constraintStart_toStartOf="@+id/c_4"
+        app:layout_constraintBottom_toTopOf="@+id/c_4" />
+
+    <View
+        android:id="@+id/c_4"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:background="@drawable/circle_grey"
+        app:layout_constraintBottom_toBottomOf="@+id/c_1"
+        app:layout_constraintEnd_toStartOf="@+id/c_5"
+        app:layout_constraintStart_toEndOf="@+id/c_3" />
+
+    <TextView
+        android:id="@+id/tv_c5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="C5"
+        app:layout_constraintEnd_toEndOf="@+id/c_5"
+        app:layout_constraintStart_toStartOf="@+id/c_5"
+        app:layout_constraintBottom_toTopOf="@+id/c_5" />
+
+    <View
+        android:id="@+id/c_5"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:background="@drawable/circle_grey"
+        app:layout_constraintBottom_toBottomOf="@+id/c_1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/c_4" />
+
+
+    <View
+        android:id="@+id/buffer"
+        android:layout_width="50dp"
+        android:layout_height="300dp"
+        android:background="@color/colorBlue"
+        app:layout_constraintBottom_toTopOf="@+id/tv_c1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_p1" />
+
+    <TextView
+        android:id="@+id/tv_current"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0"
+        android:textColor="@color/white"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toBottomOf="@+id/buffer"
+        app:layout_constraintEnd_toEndOf="@+id/buffer"
+        app:layout_constraintStart_toStartOf="@+id/buffer"
+        app:layout_constraintTop_toTopOf="@+id/buffer" />
+
+
+    <LinearLayout
+        android:id="@+id/ll_tip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="@+id/buffer"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/buffer"
+        app:layout_constraintTop_toTopOf="@+id/buffer">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="缓冲区"
+            android:textSize="15sp" />
+
+
+    </LinearLayout>
+
+</android.support.constraint.ConstraintLayout>

@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RadioGroup
+        android:id="@+id/radioGroup_fragment_process"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorAccent"
+        android:orientation="horizontal"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:theme="@style/RadioBtnTheme"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <RadioButton
+            android:id="@+id/rb_fcfs_fragment_process"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:checked="true"
+            android:text="FCFS"
+            android:textColor="@color/white" />
+
+        <RadioButton
+            android:id="@+id/rb_sjf_fragment_process"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:checked="false"
+            android:text="SJF"
+            android:textColor="@color/white" />
+
+        <RadioButton
+            android:id="@+id/rb_rr_fragment_process"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:checked="false"
+            android:text="RR"
+            android:textColor="@color/white" />
+
+        <RadioButton
+            android:id="@+id/rb_srtf_fragment_process"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:checked="false"
+            android:text="SRTF"
+            android:textColor="@color/white" />
+    </RadioGroup>
+
+
+    <Button
+        android:id="@+id/btn_start_fragment_process"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:background="@drawable/bg_btn_yellow"
+        android:text="开始"
+        android:textColor="@color/white"
+        app:layout_constraintHorizontal_chainStyle="spread"
+        app:layout_constraintEnd_toStartOf="@+id/btn_stop_fragment_process"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/radioGroup_fragment_process" />
+
+
+
+    <Button
+        android:id="@+id/btn_stop_fragment_process"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:background="@drawable/bg_btn_yellow"
+        android:text="停止"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_start_fragment_process"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/btn_start_fragment_process"
+        app:layout_constraintTop_toTopOf="@+id/btn_start_fragment_process" />
+
+    <com.bin.david.form.core.SmartTable
+        android:id="@+id/smartTable_fragment_process"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_start_fragment_process" />
+
+    </android.support.constraint.ConstraintLayout>
+
+
